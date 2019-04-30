@@ -108,15 +108,21 @@ function validarTelefono() {
 correo.onblur = function(){
 	validarCorreo();
 }
+
 function validarCorreo() {
-  if (correo.value == null || correo.value.length == 0 || /^\s+$/.test(correo.value)) {
-	  correo.classList.add("error");
-	  return false;
-  } else if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(correo.value))){
-	  correo.classList.add("error");
-	  return false;
-  } else {
-	  correo.classList.remove("error");
+    var currentmail = correo.value;
+  if (currentmail == null || currentmail.length == 0 || /^\s+$/.test(currentmail)) {
+    correo.classList.add("error");
+    return false;
+  } else if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(currentmail))){
+    correo.classList.add("error");
+    return false;
+  } /*else if(/@gmail.com\s*$/.test(currentmail)){
+    correo.classList.add("error");
+    window.alert("Debes ingresar un correo corporativo");
+    return false;
+  }*/ else {
+    correo.classList.remove("error");
   }
 }
 
@@ -162,7 +168,6 @@ function permite(elEvento, permitidos) {
   return permitidos.indexOf(caracter) != -1 || tecla_especial;
 }
 
-
 function validarCheckbox1(){
 	if(document.getElementById('radioA').checked || document.getElementById('radioB').checked || document.getElementById('radioC').checked || document.getElementById('radioD').checked){
 		document.getElementById('checkbox-container1').classList.remove('error');
@@ -180,6 +185,41 @@ function validarCheckbox2(){
 		return false;
 	}
 }
+
+function validarAsesor(){
+	validarCheckbox2();
+	var checkasesor = document.getElementById("radio2c").checked;
+	if(checkasesor === true){
+		document.getElementById("select-asesor").classList.add('visible');
+	} else {
+		document.getElementById("select-asesor").classList.remove('visible');
+	}
+}
+
+
+function validarPrivacidad(){
+	var checkprivacy = document.getElementById("privacidad").checked;
+	if(checkprivacy === false){
+		document.getElementById("aviso-label").classList.add('error');
+		return false;
+	} else {
+		document.getElementById("aviso-label").classList.remove('error');
+	}
+}
+
+/*function validarForma() {
+	validarApellido();
+	validarNombre();
+	validarCompania();
+	validarDireccion();
+	validarColonia();
+	validarCP();
+ 	validarTelefono();
+	validarCorreo();
+	validarCheckbox1();
+	validarCheckbox2();
+	validarPrivacidad();
+}*/
 
 function validarForma() {
 
@@ -203,28 +243,28 @@ $("#resgistro").submit(function(e){
 //  $('#msj').delay(3).fadeIn(3);
 
         $.ajax({
-            
             data: $("#resgistro").serialize(), 
             type: "POST",
             dataType: "json",
             url: "registroNuevo",
             beforeSend: function(){
             $('.formulario').slideUp();
-            $('.msj').html('enviado datos').slideDown('fast');
+            $('.msj').html('enviando datos').slideDown('fast');
           }
         })
         .done(function( data, textStatus, jqXHR ) {
              //solicitud correcta
              $('.formulario').hide();
              $('.msj').html('Estado de la solicitud: '+data.guardado);
+			sayGracias();
 
          })
          .fail(function( jqXHR, textStatus, errorThrown ) {
              if ( console && console.log ) {
                  console.log( "La solicitud a fallado: " +  textStatus);
              }
-
-             $('.msj').append(jqXHR).fadeIn('slow');
+			sayGracias();
+             //$('.msj').append(jqXHR).fadeIn('slow');
         });
 
 
@@ -232,5 +272,81 @@ $("#resgistro").submit(function(e){
 });
 
 
+// Cache selectors
+var lastId,
+ topMenu = $("header"),
+ topMenuHeight = topMenu.outerHeight()+1,
+ // All list items
+ menuItems = topMenu.find("a"),
+ // Anchors corresponding to menu items
+ scrollItems = menuItems.map(function(){
+   var item = $($(this).attr("href"));
+    if (item.length) { return item; }
+ });
 
+// Bind click handler to menu items
+// so we can get a fancy scroll animation
+menuItems.click(function(e){
+  var href = $(this).attr("href"),
+      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+  $('html, body').stop().animate({ 
+      scrollTop: offsetTop
+  }, 850);
+  e.preventDefault();
+});
+
+// Bind to scroll
+$(window).scroll(function(){
+   // Get container scroll position
+   var fromTop = $(this).scrollTop()+topMenuHeight;
+   
+   // Get id of current scroll item
+   var cur = scrollItems.map(function(){
+     if ($(this).offset().top < fromTop)
+       return this;
+   });
+   // Get the id of the current element
+   cur = cur[cur.length-1];
+   var id = cur && cur.length ? cur[0].id : "";
+
+	// Set/remove active class
+	console.log(id)
+	menuItems.removeClass("active");
+	$('#'+id+'-link').addClass('active')
+});
+
+
+
+$('.ctaportada').on('click', function(){
+	$('html,body').animate({
+        scrollTop: $('#registro').offset().top-topMenuHeight+2
+    }, 'slow');
+	return false;
+});
+
+$('.overlay').on('click', function(){
+	$('body').removeClass('no-scroll');
+	$(this).fadeOut();
+	$('.modal:visible').fadeOut();
+});
+
+$('.close').on('click', function(){
+	$('body').removeClass('no-scroll');
+	$(this).parents('.modal').fadeOut();
+	$('.overlay').fadeOut();
+});
+
+$('.trigger-aviso').on('click', function(){
+	$('body').addClass('no-scroll');
+	$('.overlay').fadeIn();
+	$('#privacy-policy').fadeIn();
+	return false;
+});
+
+function sayGracias(){
+	$('#thankyou').fadeIn();
+	$('.overlay').fadeIn();
+}
+
+//sayGracias();
 

@@ -86,6 +86,10 @@ header{
 	background: #213C60 url("../img/symantec-logo.svg") no-repeat;
 	background-size: 170px 50px;
 	background-position: 33px 9px;
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	margin: 0;
 }
 nav{
 	float: right;
@@ -102,12 +106,13 @@ nav a{
 	margin: 0 10px;
 	padding: 0 1em;
 	line-height: 4em;
+	color: #FFF;
 }
 nav a:hover{
 	color: #F5BA27;
 }
 .inactive{
-	color: #FFF;
+	
 }
 .active{
 	color: #F5BA27;
@@ -123,6 +128,7 @@ nav a:hover{
 	height: 956px;
 	position: relative;
 	z-index: 1;
+	margin: 70px 0 0 0;
 }
 .texto-portada{
 	width: 45%;
@@ -168,8 +174,8 @@ h1 span{
 	display: block;
 }
 #registro{
-	height: 1300px;
-	margin: -300px auto 0;
+	height: 120vh;
+	/*margin: -300px auto 0;*/
 	position: relative;
 	z-index: 0;
 	background-image: linear-gradient(0deg, #bac9d1 25.81%, #ffffff 25.81%, #ffffff 50%, #bac9d1 50%, #bac9d1 75.81%, #ffffff 75.81%, #ffffff 100%);
@@ -179,11 +185,11 @@ h1 span{
 	width: 38%;
 	float: left;
 	height: 100%;
-	margin: 0 0 0 10%;
+	margin: -20vh 0 0 10%;
 	position: relative;
 }
 .cabeza-form{
-	height: 300px;
+	height: 25vh;
 	background: #213C60;
 	margin: 0 0 33px 0;
 	position: relative;
@@ -196,15 +202,6 @@ h1 span{
 	font-weight: bold;
 	margin: 0 0 0 7%;
 }
-.msj{
-	width: 100%;
-	min-height: 792px;
-	background: #FFF;
-	border: 2px solid #F5BA27;;
-	box-sizing: border-box;
-	box-shadow: 0px 4px 6px 2px rgba(0,0,0,0.19);
-}
-
 .formulario{
 	width: 100%;
 	background: #FFF;
@@ -212,17 +209,18 @@ h1 span{
 	box-sizing: border-box;
 	box-shadow: 0px 4px 6px 2px rgba(0,0,0,0.19);
 }
-
 .img-form{
-	background: url("../img/symantec-registro.jpg") center;
+	background: url("../img/symantec-registro.jpg") center no-repeat;
+	background-size: cover;
+	margin: -20vh 0 0 0;
 	width: 45%;
 	max-width: 850px;
-	height: 100%;
+	height: 140vh;
 	float: right;
 	box-shadow: -4px 0px 5px 0px rgba(0,0,0,0.29);
 }
 
-.formulario>label {
+.formulario>label, formulario>select {
   display: block;
   text-align: left;
 	width: 90%;
@@ -412,9 +410,18 @@ h1 span{
 	left: 2px;
 	width: 9px;
 	height: 9px;
-	background: #808080;
+	background: #CCC;
 }
-
+#select-asesor {
+  padding: 7px 10%;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+	display: none;
+}
+#select-asesor.visible{
+	display: block;
+}
 button {
   background-color: #F5BA27;
   color: #213C60;
@@ -444,6 +451,10 @@ button:hover, button:focus {
 	color: #808080;
 	font-weight: normal;
 	font-size: .8em;
+}
+.aviso-privacidad.error{
+	color: #DB0000;
+	text-decoration: underline;
 }
 .aviso-privacidad a{
 	color: #29A8DF;
@@ -525,6 +536,84 @@ button:hover, button:focus {
 	font-weight: normal;
 	margin: 13px 0 0;
 }
+#lugar{
+	position: relative;
+	z-index: 1;
+}
+.infomapa{
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 50%;
+	width: 80%;
+	margin: 0 0 0 -40%;
+	border-radius: 0 0 33px 33px;
+	overflow: hidden;
+}
+.mapa-gris, .mapa-azul{
+	position: relative;
+	width: 44%;
+	padding: 0% 3%;
+	float: left;
+	height: 200px;
+}
+.mapa-gris{
+	background: #EFEFEF;
+}
+.mapa-gris h3{
+	color: #213C60;
+	font-size: 2em;
+	font-weight: bold;
+	margin: 20px 0 15px 20px;
+}
+.mapa-gris p{
+	color: #333;
+	font-size: 1em;
+	margin: 2px 0 10px 40px;
+	line-height: .8em;
+}
+.mapa-gris p.direccion-mapa{
+	font-weight: bold;
+}
+.mapa-azul{
+	background: #213C60;
+}
+.mapa-azul p, .mapa-azul h4{
+	color: #fff;
+	font-style: italic;
+	font-size: .8em;
+	line-height: 1.2em;
+}
+.mapa-azul .intro-estacionamiento{
+	font-weight: bold;
+	margin: 20px 0 13px 20px;
+	font-style: normal;
+	float: none;
+}
+.mapa-azul img{
+	display: block;
+	width: 90px;
+	height: auto;
+	float: left;
+	margin: 0 20px 13px 0;
+}
+.mapa-azul h4{
+	font-size: 1.3em;
+	margin: 0 0 13px 0;
+}
+#mapa-container{
+	position: relative;
+	z-index: 1;
+	height:85vh; 
+	width: 100%; 
+	display:inline-block;
+	overflow:hidden;
+}
+#mapa-container iframe{
+	position:relative; 
+	top:-13vh; 
+	border:none;
+}
 footer{
 	width: 100%;
 	height: 60px;
@@ -540,6 +629,175 @@ footer a{
 	text-decoration: none;
 }
 
+.overlay{
+	display: block;
+	content: '';
+	position: absolute;
+	position: fixed;
+	z-index: 199;
+	background: rgba(0,0,0,.75);
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+.overlay{
+	display: none;
+}
+.no-scroll{
+	overflow: hidden;
+}
+#privacy-policy{
+	position: absolute;
+	position: fixed;
+	z-index: 200;
+	width: 80%;
+	height: 70vh;
+	left: 50%;
+	top: 50%;
+	margin: -35vh 0 0 -40%;
+	border-radius: 13px;
+	overflow: hidden;
+	display: none;
+}
+.left-privacy{
+	background: url("../img/symantec-logo.svg"),  url("../img/fondo-aviso.jpg");
+	background-position: 10% 1%, center;
+	background-size: 60% 30%, cover;
+	background-repeat: no-repeat;
+	display: block;
+	width: 30%;
+	height: 100%;
+	float: left;
+}
+.right-policy{
+	background: #FFF;
+	display: block;
+	width: 70%;
+	height: 100%;
+	float: left;
+	overflow: auto;
+}
+.close{
+	display: block;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+.right-policy .close #cruz polygon{
+	transition: all .5s;
+	fill: #213C60;
+}
+.right-policy .close:hover #cruz polygon{
+	fill: #F5BA27;
+}
+.right-policy h4{
+	color: #213C60;
+	font-size: 2em;
+	margin: 13% 0 40px 10%;
+	font-weight: bold;
+}
+.right-policy p{
+	color: #333;
+	margin: 0 20% 20px;
+	font-size: .85em;
+	line-height: 1.2em;
+}
+#thankyou{
+	display: none;
+	position: fixed;
+	width: 50%;
+	height: auto;
+	padding: 3% 0;
+	border-radius: 13px;
+	background: #213C60;
+	top: 50%;
+	left: 50%;
+	z-index: 200;
+	margin: -15.5vh 0 0 -25%;
+	overflow: hidden;
+}
+#thankyou .close #cruz polygon{
+	transition: all .5s;
+	fill: #F5BA27;
+}
+#thankyou .close:hover #cruz polygon{
+	fill: #FFFFFF;
+}
+#thankyou h3{
+	margin: 0 0 20px 0;
+	color: #F5BA27;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.7em;
+}
+#thankyou p{
+	margin: 0 0 13px 0;
+	color: #FFF;
+	text-align: center;
+	font-weight: normal;
+	font-size: 1em;
+}
+#thankyou p.mail-gracias{
+	font-style: italic;
+}
+#thankyou .gracias-thankyou{
+	margin: 20px 0 0px 0;
+	color: #F5BA27;
+	text-align: center;
+	font-weight: bold;
+	font-size: 2.2em;
+}
+
+.msj {
+    width: 100%;
+    min-height: 692px;
+    background: #213C60;
+    border: 2px solid #F5BA27;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 6px 2px rgba(0,0,0,0.19);
+    color: #FFF;
+    text-align: center;
+    font-size: 1.3em;
+    line-height: 8em;
+}
+
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid #fff;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 28px;
+    left: 28px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: -1px;
+    left: -1px;
+    width: 58px;
+    height: 58px;
+    opacity: 0;
+  }
+}
+
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*++++++++++++++++++++++++++++++++++++++++++    MEDIA QUERIES    +++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -553,12 +811,32 @@ footer a{
 	h1{
 		font-size: 5.7em;
 	}
-	.cabeza-form{
+	/*.cabeza-form{
 		height: 350px;
-	}
+	}*/
 	.liston-agenda{
 		border-right: 5em solid #F5BA27;
 		width: 85%;
+	}
+	.infomapa{
+		width: 90%;
+		margin: 0 0 0 -45%;
+		border-radius: 0 0 33px 33px;
+	}
+	.mapa-azul p, .mapa-azul h4{
+		font-size: .7em;
+		line-height: 1.2em;
+	}
+	.mapa-azul .intro-estacionamiento{
+		font-weight: bold;
+		margin: 20px 0 13px 20px;
+		font-style: normal;
+		float: none;
+	}
+	.mapa-azul img{
+		width: 72px;
+		float: left;
+		margin: 0 20px 13px 0;
 	}
 }
 @media screen and (max-width: 960px){
@@ -582,10 +860,33 @@ footer a{
 	}
 	.form {
 		width: 56%;
-		margin: 0 0 0 5%;
+		margin: -20vh 0 0 5%;
+	}
+	#thankyou{
+		width: 74%;
+		padding: 6% 3%;
+		margin: -20.5vh 0 0 -40%;
 	}
 }
 @media screen and (max-width: 768px){
+	header{
+		height: 52px;
+		background: #213C60 url("../img/symantec-logo.svg") no-repeat;
+		background-size: 124px 33px;
+		background-position: 31px 7px;
+	}
+	nav a {
+		height: 52px;
+		font-size: 1.0em;
+		margin: 0 6px;
+		padding: 0 1em;
+		line-height: 3.2em;
+	}
+	#portada{
+		background-position: center 100%;
+		height: 70vh;
+		margin: 52px 0 0 0;
+	}
 	.texto-portada{
 		width: 80%;
 		margin: 7% 9% 0 0;
@@ -598,7 +899,10 @@ footer a{
 	}
 	.form {
 		width: 80%;
-		margin: 0 0 0 10%;
+		margin: -20vh 0 0 10%;
+	}
+	.form h2{
+		font-size: 2.2em;
 	}
 	.liston-agenda{
 		border-right: 4em solid #F5BA27;
@@ -621,6 +925,47 @@ footer a{
 		font-size: 1.22em;
 		line-height: 1.4em;
 	}
+	.infomapa{
+		width: 100%;
+		left: 0;
+		margin: 0 0 0 0;
+		border-radius: 0 0;
+		position: relative;
+	}
+	.mapa-gris, .mapa-azul{
+		position: relative;
+		width: 94%;
+		padding: 3% 3%;
+		float: none;
+		height: auto;
+	}
+	.mapa-gris h3{
+		margin: 0 0 10px 0;
+		font-size: 1.5em;
+	}
+	.mapa-gris p{
+		margin: 0;
+		line-height: 1.2em;
+	}
+	.right-policy h4{
+		font-size: 1.8em;
+		margin: 13% 0 40px 10%;
+	}
+	.right-policy p{
+		margin: 0 10% 20px;
+		font-size: .8em;
+		line-height: 1.2em;
+	}
+	.left-privacy{
+		background: url("../img/symantec-logo.svg"),  url("../img/fondo-aviso.jpg");
+		background-position: 21% 0%, center;
+		background-size: 60% 10%, cover;
+		background-repeat: no-repeat;
+		display: block;
+		width: 30%;
+		height: 100%;
+		float: left;
+	}
 }
 @media screen and (max-width: 600px){
 	.texto-portada{
@@ -628,7 +973,10 @@ footer a{
 		margin: 3% 5% 0 0;
 	}
 	h1{
-		font-size: 3.8em;
+		font-size: 3em;
+	}
+	.texto-portada a, .texto-portada p {
+		font-size: .85em;
 	}
 	.portada-fecha{
 		font-size: 1.8em !important;
@@ -664,8 +1012,65 @@ footer a{
 		font-size: .9em;
 		line-height: 1.4em;
 	}
+	#thankyou{
+		width: 74%;
+		padding: 10% 3%;
+		margin: -20.5vh 0 0 -40%;
+	}
+	#thankyou h3{
+		margin: 8% 0 20px 0;
+		font-size: 1.4em;
+	}
+	#thankyou p{
+		margin: 0 0 13px 0;
+		color: #FFF;
+		font-size: .9em;
+	}
+	.left-privacy{
+		background: url("../img/symantec-logo.svg"),  url("../img/fondo-aviso.jpg");
+		background-position: 0% 48%, center;
+		background-size: 57% 51%, cover;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 13%;
+		float: none;
+	}
+	.right-policy{
+		width: 100%;
+		height: 87%;
+		float: none;
+		overflow: auto;
+	}
+	.right-policy h4{
+		font-size: 1.35em;
+		margin: 8% 0 8% 10%;
+	}
+	.right-policy .close #cruz polygon{
+		fill: #F5BA27;
+	}
+	.right-policy .close:hover #cruz polygon{
+		fill: #FFFFFF;
+	}
 }
 @media screen and (max-width: 460px){
+	header {
+		background: #213C60 url("../img/symantec-logo.svg") no-repeat;
+		background-size: 94px 33px;
+		background-position: 14px 6px;
+
+	}
+	nav {
+		margin: 0 14px 0 0;
+	}
+	nav a {
+		font-size: .7em;
+		margin: 0 0px;
+		padding: 0 .5em;
+		line-height: 4.5em;
+	}
+	#portada{
+		height: 80vh;
+	}
 	.texto-portada{
 		width: 90%;
 		margin: 3% 4% 0 0;
@@ -681,8 +1086,155 @@ footer a{
 		font-size: .9em !important;
 		margin: 10px 0 20px 0;
 	}
+	#registro{
+		height: auto;
+	}
+	#registro:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0;font-size:0;}
+	#registro{display:block;}
 	.form {
 		width: 92%;
-		margin: 0 0 0 2%;
+		margin: -16vh 0 0 4%;
+	}
+	.form h2{
+		font-size: 1.8em;
+	}
+	.container {
+		float: none;
+		margin: 4% 15% 4%;
+		width: 70%;
+	}
+	button {
+		font-size: 1em;
+		padding: 15px 80px;
+		position: relative;
+		left: 50%;
+		margin: 30px 0 20px -120px;
+	}
+	.liston-agenda{
+		border-right: 1.8em solid #F5BA27;;
+	}
+	.liston-agenda h2 {
+		float: none;
+		margin: 5px 8px 0px 20px;
+		border-right: none;
+		padding: 0 0 0 0;
+		font-size: 1.4em;
+	}
+	.liston-agenda div{
+		margin: 0px 0 5px 20px;
+		float:none;
+	}
+	.liston-agenda div h4{
+		font-size: 1.1em;
+		font-weight: bold;
+	}
+	.liston-agenda div h5{
+		font-size: .9em;
+		line-height: 1.4em;
+	}
+	.agenda-white li {
+		margin: 3px 11px 20px 18px;
+		font-size: 1.1em;
+	}
+}
+@media screen and (min-aspect-ratio: 17/9) {
+	/*body{
+		background:blue;
+	}*/
+	#portada {
+	    height: 107vh;
+	}
+	.texto-portada {
+		margin: 3% 5% 0 0;
+		width: 44%;
+	}
+	h1 {
+		font-size: 4.4em;
+	}
+	.portada-fecha {
+		font-size: 1.9em !important;
+	}
+	#registro {
+	    height: auto;
+	}
+	#registro:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0;font-size:0;}
+	#registro{display:block;}
+	.form {
+		width: 92%;
+		margin: -16vh 0 0 4%;
+	}
+	.form {
+	    width: 55%;
+	    margin: -29vh 0 0 3%;
+	}
+	.cabeza-form {
+    	height: 40vh;
+    }
+    .img-form {
+	    width: 39%;
+	    height: 170vh;
+	}
+	.formulario > label, formulario > select {
+	    width: 38%;
+	    margin: 15px 3% 0 7%;
+	    float: left;
+	}
+	.formulario .doscolumnas {
+	    width: 92%;
+	    margin: 12px 3% 12px 7%;
+	}
+	.formulario .doscolumnas label {
+	    width: 42%;
+	    margin: 0 8% 0 0%;
+	}
+	button {
+		font-size: 1em;
+		padding: 15px 80px;
+		position: relative;
+		left: 50%;
+		margin: 30px 0 20px -120px;
+	}
+	.mapa-gris {
+	    width: 26%;
+	    height: 138px;
+	}
+	.mapa-azul {
+	    width: 62%;
+	    height: 138px;
+	}
+	.mapa-azul img{
+		width: 69px;
+	}
+}
+@media screen and (max-aspect-ratio: 2/1) {
+	/*body{
+		background:blue;
+	}*/
+	#mapa-container iframe{
+		top:-16vh; 
+	}
+}
+@media screen and (max-aspect-ratio: 16/9) {
+	/*body{
+		background:gray;
+	}*/
+	#mapa-container iframe{
+		top:-15vh; 
+	}
+}
+@media screen and (max-aspect-ratio: 5/3) {
+	/*body{
+		background:brown;
+	}*/
+	#mapa-container iframe{
+		top:-14vh; 
+	}
+}
+@media screen and (max-aspect-ratio: 3/2) {
+	/*body{
+		background:brown;
+	}*/
+	#mapa-container iframe{
+		top:-13vh; 
 	}
 }
