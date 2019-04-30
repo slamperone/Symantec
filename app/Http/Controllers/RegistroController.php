@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Registro;
+use App\Checkin;
 use App\Mail\Invitacion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class RegistroController extends Controller
 {
@@ -49,12 +51,37 @@ class RegistroController extends Controller
         ]);
 
   
+            $registro = Registro::create($request->all());
 
-        if ($registro = Registro::create($request->all())){
+        if ($registro){
             $salida = 'Éxito al guardar';
         }else{
             $salida = 'Error al guardar';
         }
+
+        
+        //encripto su id de usuario 
+
+        //$user = Hash::make('$registro->id');
+
+        $user = md5($registro->id);
+
+        $check = Checkin::create([
+            'idRegistrado' => $registro->id,
+            'hash' => $user,
+
+        ]);
+
+
+
+        
+
+        //le genero su qr
+          \QrCode::size(1000)
+
+            ->format('png')
+
+            ->generate('http://symantec-cyberdefense-cloud-forum.com/checkin/'.$user, public_path('img/qr/'.$user.'.png'));
 
         //return $salida;
 
@@ -65,7 +92,8 @@ class RegistroController extends Controller
 
         $receptor = array(
             'nombre' => $request->input('nombre'),
-            'correo' => $request->input('correo')
+            'correo' => $request->input('correo'),
+            'qr'    => $user,
         );
 
         

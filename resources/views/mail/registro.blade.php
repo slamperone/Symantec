@@ -11,7 +11,8 @@
 	<h2 style="margin: 20px 0 60px; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; font-size: 20px;">Hola {{ $nombre }}, gracias por registrarte en <strong>Symantec Cyberdefense Cloud Forum</strong></h2>    
     <p style="font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'">Confirmamos su registro a Symantec Cyberdefense Cloud Forum </p>
 </div>
-
-    <!--img src="https://www.qr-code-generator.com/wp-content/themes/qr/new_structure/generator/dist/generator/assets/images/websiteQRCode_noFrame.png" alt="permite la descarga de imagenes para ver tu codigo QR"-->
+<div style="margin:auto;text-align: center;">
+    <img src="http://symantec-cyberdefense-cloud-forum.com/img/qr/{{ $qr }}" alt="permite la descarga de imagenes para ver tu codigo QR" width="500">
+</div>    
 </body>
 </html>
