@@ -77,11 +77,12 @@ class RegistroController extends Controller
         
 
         //le genero su qr
-          \QrCode::size(1000)
+          \QrCode::format('png')
 
-            ->format('png')
-
-            ->generate('http://symantec-cyberdefense-cloud-forum.com/checkin/'.$user, public_path('img/qr/'.$user.'.png'));
+          ->size(500)
+          ->errorCorrection('H')
+          ->color(33,60,96)
+          ->generate('http://symantec-cyberdefense-cloud-forum.com/checkin/'.$user, public_path('img/qr/'.$user.'.png'));
 
         //return $salida;
 
