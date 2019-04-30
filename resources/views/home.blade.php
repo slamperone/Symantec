@@ -77,18 +77,12 @@
                     </label>
 
                      <label>
-                        <select id="select-asesor">
+                        <select id="select-asesor" name="asesor">
                             <option value="default" selected>Elige un asesor</option>
-                            <option value="erika-urbina">Erika Urbina</option>
-                            <option value="jorge-zita">Jorge Zita</option>
-                            <option value="alfredo-fuello">Alfredo Fuello</option>
-                            <option value="cesar-zuniga">César Zúñiga</option>
-                            <option value="ivan-tapias">Iván Tapias</option>
-                            <option value="yamil-jimenez">Yamil Jiménez</option>
-                            <option value="jennifer-murillo">Jennifer Murillo</option>
-                            <option value="gabriel-sanchez">Gabriel Sánchez</option>
-                            <option value="goretti-almanza">Goretti Almanza</option>
-                            <option value="xochitl-raya">Xóchitl Raya</option>
+                            
+                            @foreach($asesores as $as)
+                                    <option value="{{$as->valor}}">{{$as->nombre}}</option>                                
+                            @endforeach
                         </select> 
                     </label>
 

@@ -44,7 +44,7 @@ class RegistroController extends Controller
         //
             $request->validate([
 
-            'nombre','apellidos','compania','dir','colonia','cp','telefono','correo','tamanio','encuesta'
+            'nombre','apellidos','compania','dir','colonia','cp','telefono','correo','tamanio','encuesta','asesor'
 
         ]);
 
