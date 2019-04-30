@@ -1,0 +1,678 @@
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License: none (public domain) */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin:0; padding: 0; border:0; font-size: 100%; font: inherit; vertical-align: baseline;}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+body {line-height: 1;}
+ol, ul {list-style: none;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after,
+q:before, q:after {content: ''; content: none;}
+table {border-collapse: collapse; border-spacing: 0;}
+/*Limpiar floats con Clearfix*/
+.clearfix:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0;font-size:0;}
+.clearfix{display:inline-block;}
+html[xmlns] .clearfix{display:block;}
+* html .clearfix{height:1%;}
+* html .clearfix{zoom:1;}/*IE6*/
+*:first-child+html .clearfix{zoom:1;}/*IE7*/
+/*++++++FIN DE RESET++++++++*/
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*++++++++++++++++++++++++++++++++++++++++++++    TIPOGRAFÍAS   ++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+@font-face {
+    font-family:'Symantec Sans';
+    src: url('fonts/SymantecSans-BoldItalic.eot');
+    src: url('fonts/SymantecSans-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/SymantecSans-BoldItalic.woff') format('woff'),
+        url('fonts/SymantecSans-BoldItalic.ttf') format('truetype'),
+        url('fonts/SymantecSans-BoldItalic.svg#SymantecSans-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family:'Symantec Sans';
+    src: url('fonts/SymantecSans-Bold.eot');
+    src: url('fonts/SymantecSans-Bold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/SymantecSans-Bold.woff') format('woff'),
+        url('fonts/SymantecSans-Bold.ttf') format('truetype'),
+        url('fonts/SymantecSans-Bold.svg#SymantecSans-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'Symantec Sans';
+    src: url('fonts/SymantecSans.eot');
+    src: url('fonts/SymantecSans.eot?#iefix') format('embedded-opentype'),
+        url('fonts/SymantecSans.woff') format('woff'),
+        url('fonts/SymantecSans.ttf') format('truetype'),
+        url('fonts/SymantecSans.svg#SymantecSans') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'Symantec Sans';
+    src: url('fonts/SymantecSans-Italic.eot');
+    src: url('fonts/SymantecSans-Italic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/SymantecSans-Italic.woff') format('woff'),
+        url('fonts/SymantecSans-Italic.ttf') format('truetype'),
+        url('fonts/SymantecSans-Italic.svg#SymantecSans-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*++++++++++++++++++++++++++++++++++++++++    ESTILOS GENERALES    +++++++++++++++++++++++++++++++++++++++++++++*/
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+body, html{
+	font-family: 'Symantec Sans';
+}
+#contenedor_general{
+	overflow:inherit;
+	
+}
+header{
+	width: 100%;
+	height: 70px;
+	background: #213C60 url("../img/symantec-logo.svg") no-repeat;
+	background-size: 170px 50px;
+	background-position: 33px 9px;
+}
+nav{
+	float: right;
+	margin: 0 20px 0 0;
+}
+nav a{
+	display: block;
+	font-weight: normal;
+    font-style: normal;
+	float: left;
+	text-decoration: none;
+	height: 70px;
+	font-size: 1.2em;
+	margin: 0 10px;
+	padding: 0 1em;
+	line-height: 4em;
+}
+nav a:hover{
+	color: #F5BA27;
+}
+.inactive{
+	color: #FFF;
+}
+.active{
+	color: #F5BA27;
+}
+.seccion{
+	margin: 0 auto;
+	max-width: 1920px;
+}
+#portada{
+	width: 100%;
+	background: url("../img/intro-back.png") no-repeat;
+	background-position: center 100%;
+	height: 956px;
+	position: relative;
+	z-index: 1;
+}
+.texto-portada{
+	width: 45%;
+	float: right;
+	margin: 7% 5% 0 0;
+	text-align: right;
+}
+h1{
+	font-size: 6em;
+	color: #FFF;
+	font-weight:normal;
+}
+h1 b{
+	color: #FFF;
+	font-weight: bold;
+	line-height: .8em;
+}
+h1 span{
+	color: #F5BA27;
+}
+.texto-portada p{
+	font-size: 1em;
+	color: #FFF;
+	font-weight: bold;
+	line-height: 1.2em;
+}
+.portada-fecha{
+	font-size: 2.7em !important;
+	margin: 14px 0px;
+	font-weight: bold;
+}
+.portada-hora{
+	font-weight: normal;
+	font-size: 1.5em !important;
+	font-weight: normal !important;
+	margin: 10px 0 20px 0;
+}
+.texto-portada a{
+	font-size: 1.1em;
+	color: #F5BA27;
+	font-weight: bold;
+	margin: 33px 0 0 0;
+	display: block;
+}
+#registro{
+	height: 1300px;
+	margin: -300px auto 0;
+	position: relative;
+	z-index: 0;
+	background-image: linear-gradient(0deg, #bac9d1 25.81%, #ffffff 25.81%, #ffffff 50%, #bac9d1 50%, #bac9d1 75.81%, #ffffff 75.81%, #ffffff 100%);
+	background-size: 100% 160%;
+}
+.form{
+	width: 38%;
+	float: left;
+	height: 100%;
+	margin: 0 0 0 10%;
+	position: relative;
+}
+.cabeza-form{
+	height: 300px;
+	background: #213C60;
+	margin: 0 0 33px 0;
+	position: relative;
+}
+.form h2{
+	color: #FFF;
+	position: absolute;
+	bottom: 13px;
+	font-size: 2.7em;
+	font-weight: bold;
+	margin: 0 0 0 7%;
+}
+.formulario{
+	width: 100%;
+	background: #FFF;
+	border: 2px solid #BAC9D1;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 6px 2px rgba(0,0,0,0.19);
+}
+.img-form{
+	background: url("../img/symantec-registro.jpg") center;
+	width: 45%;
+	max-width: 850px;
+	height: 100%;
+	float: right;
+	box-shadow: -4px 0px 5px 0px rgba(0,0,0,0.29);
+}
+
+.formulario>label {
+  display: block;
+  text-align: left;
+	width: 90%;
+	margin: 15px 3% 0 7%;
+}
+
+.formulario>label .label-text {
+  color: #808080;
+  cursor: text;
+  font-size: .9em;
+  line-height: .9em;
+  -moz-transform: translateY(-20px);
+  -ms-transform: translateY(-20px);
+  -webkit-transform: translateY(-20px);
+  transform: translateY(-20px);
+  transition: all 0.3s;
+	font-style: italic;
+}
+.formulario>label input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid #bbb;
+  color: #222;
+  font-size: .8em;
+  outline: 0;
+  padding: 6px 0 1px;
+  text-align: left;
+  transition: all 0.3s;
+  width: 86%;
+	font-family: 'Symantec Sans';
+}
+.formulario>label input:focus {
+  max-width: 100%;
+  width: 90%;
+}
+.formulario>label input:focus + .label-text {
+  font-size: .9em;
+  -moz-transform: translateY(-33px);
+  -ms-transform: translateY(-33px);
+  -webkit-transform: translateY(-33px);
+  transform: translateY(-33px);
+}
+.formulario>label input:valid + .label-text {
+  font-size: .9em;
+  -moz-transform: translateY(-33px);
+  -ms-transform: translateY(-33px);
+  -webkit-transform: translateY(-33px);
+  transform: translateY(-33px);
+}
+
+
+.formulario>label input.error, .formulario .doscolumnas label input.error {
+  border-bottom: 2px solid #DB0000;
+  color: #DB0000;
+}
+
+
+
+.formulario .doscolumnas {
+	display: block;
+	width: 84%;
+	margin: 12px 3% 12px 7%;
+	float: left;
+}
+.formulario .doscolumnas label {
+	display: block;
+	width: 49%;
+	margin: 0 0 0 0;
+	float: left;
+}
+.formulario .doscolumnas label .label-text{
+	color: #808080;
+	cursor: text;
+	font-size: .9em;
+	line-height: .9em;
+	-moz-transform: translateY(-20px);
+	-ms-transform: translateY(-20px);
+	-webkit-transform: translateY(-20px);
+	transform: translateY(-20px);
+	transition: all 0.3s;
+	font-style: italic;
+}
+.formulario .doscolumnas label input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid #bbb;
+  color: #222;
+  font-size: .8em;
+  outline: 0;
+  padding: 6px 0 1px;
+  text-align: left;
+  transition: all 0.3s;
+  width: 86%;
+	font-family: 'Symantec Sans';
+}
+.formulario .doscolumnas label input:focus {
+  max-width: 100%;
+  width: 90%;
+}
+.formulario .doscolumnas label input:focus + .label-text {
+  font-size: .9em;
+  -moz-transform: translateY(-33px);
+  -ms-transform: translateY(-33px);
+  -webkit-transform: translateY(-33px);
+  transform: translateY(-33px);
+}
+.formulario .doscolumnas label input:valid + .label-text {
+  font-size: .9em;
+  -moz-transform: translateY(-33px);
+  -ms-transform: translateY(-33px);
+  -webkit-transform: translateY(-33px);
+  transform: translateY(-33px);
+}
+
+
+.checkbox-container{
+	width: 84%;
+	margin: 10px 7%;
+        padding: 14px 0 7px;
+	border: 2px solid #CCC;
+	box-sizing: border-box;
+}
+.checkbox-container.error{
+	border: 2px solid #DB0000;
+}
+.checkbox-container p{
+	font-size: .8em;
+    margin: 0 5% 5px;
+    color: #808080;
+    font-style: italic;
+}
+.container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+	font-style: italic;
+	color: #808080;
+	font-size: .76em;
+	width: 36%;
+	margin: 2% 5% 4%;
+	height: 13px;
+	float: left;
+	line-height: 1.2em;
+}
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  right: -13px;
+  height: 13px;
+  width: 13px;
+	border: 1px solid #808080;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #DDD;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #FFF;
+	border: 1px solid #808080;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 2px;
+	left: 2px;
+	width: 9px;
+	height: 9px;
+	background: #808080;
+}
+
+button {
+  background-color: #F5BA27;
+  color: #213C60;
+  cursor: pointer;
+  font-size: 1.3em;
+  padding: 15px 100px;
+  transition: all 200ms;
+	outline: none;
+	border: none;
+	font-family: 'Symantec Sans';
+	position: absolute;
+	left: 50%;
+	margin: 30px -00% 0 -150px;
+}
+button:hover, button:focus {
+  background-color: #213C60;
+  color: #F5BA27;
+}
+.disclaimersForm{
+	margin: 10px 13% 0;
+}
+.disclaimersForm input{
+	border: 2px #808080 solid;
+	background: none;
+}
+.aviso-privacidad{
+	color: #808080;
+	font-weight: normal;
+	font-size: .8em;
+}
+.aviso-privacidad a{
+	color: #29A8DF;
+	font-style: italic;
+	font-size: 1em;
+}
+
+.disclaimer{
+	color: #808080;
+	font-weight: normal;
+	font-size: .65em;
+	margin: 8px 0;
+}
+.invitaciones{
+	color: #213C60;
+	font-size: .8em;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+#agenda{
+	width: 100%;
+	max-width: 100%;
+	padding: 33px 0;
+	background: #9AA9AF;
+}
+.agenda-white{
+	background: #FFF;
+	padding: 20px 0;
+	width: 80%;
+	margin: 0 10%;
+}
+.liston-agenda{
+	background: #213C60;
+	border-right: 5em solid #F5BA27;
+    width: 91%;
+}
+.liston-agenda h2{
+	display: block;
+    margin: 9px 10px 5px 57px;
+    float: left;
+    border-right: 2px solid #F5BA27;
+    color: #FFF;
+    padding: 0 26px 0 0;
+    height: 2em;
+    line-height: 2em;
+    font-size: 2em;
+    font-weight: bold;
+}
+.liston-agenda div{
+	float: left;
+	margin: 9px 0 5px 20px;
+}
+.liston-agenda div h4{
+	color: #F5BA27;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.liston-agenda div h5{
+	color: #FFF;
+	font-size: 1.4em;
+    line-height: 1.4em;
+}
+.agenda-white ul{
+	margin: 20px;
+}
+.agenda-white li{
+	padding: 0 0 13px 0;
+	margin: 3px 33px 20px 40px;
+	border-bottom: 1px solid #AAB5BA;
+	color: #213C60;
+	font-size: 1.3em;
+	font-weight: bold;
+	list-style: disc;
+}
+.agenda-white li p{
+	color: #666;
+	font-size: .7em;
+	font-weight: normal;
+	margin: 13px 0 0;
+}
+footer{
+	width: 100%;
+	height: 60px;
+	background: #213C60 url("../img/symantec-logo.svg") no-repeat;
+	background-size: 150px 40px;
+	background-position: 33px 9px;
+}
+footer a{
+	float: right;
+	color: #FFF;
+	margin: 20px 33px 0 0;
+	font-size: 1em;
+	text-decoration: none;
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*++++++++++++++++++++++++++++++++++++++++++    MEDIA QUERIES    +++++++++++++++++++++++++++++++++++++++++++++++*/
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+@media screen and (max-width: 1350px){
+	.texto-portada{
+		width: 60%;
+		margin: 7% 5% 0 0;
+	}
+	h1{
+		font-size: 5.7em;
+	}
+	.cabeza-form{
+		height: 350px;
+	}
+	.liston-agenda{
+		border-right: 5em solid #F5BA27;
+		width: 85%;
+	}
+}
+@media screen and (max-width: 960px){
+	.texto-portada{
+		width: 65%;
+		margin: 7% 5% 0 0;
+	}
+	h1{
+		font-size: 5em;
+	}
+	.portada-fecha{
+		font-size: 2.1em !important;
+		margin: 14px 0px;
+	}
+	.portada-hora{
+		font-size: 1.3em !important;
+		margin: 10px 0 20px 0;
+	}
+	.img-form {
+		width: 33%;
+	}
+	.form {
+		width: 56%;
+		margin: 0 0 0 5%;
+	}
+}
+@media screen and (max-width: 768px){
+	.texto-portada{
+		width: 80%;
+		margin: 7% 9% 0 0;
+	}
+	h1{
+		font-size: 4.5em;
+	}
+	.img-form {
+		width: 0;
+	}
+	.form {
+		width: 80%;
+		margin: 0 0 0 10%;
+	}
+	.liston-agenda{
+		border-right: 4em solid #F5BA27;
+		width: 86%;
+	}
+	.liston-agenda h2 {
+		margin: 9px 10px 5px 45px;
+		border-right: 2px solid #F5BA27;
+		padding: 0 20px 0 0;
+		font-size: 1.75em;
+	}
+	.liston-agenda div{
+		margin: 16px 0 5px 10px;
+	}
+	.liston-agenda div h4{
+		font-size: 1.3em;
+		font-weight: bold;
+	}
+	.liston-agenda div h5{
+		font-size: 1.22em;
+		line-height: 1.4em;
+	}
+}
+@media screen and (max-width: 600px){
+	.texto-portada{
+		width: 90%;
+		margin: 3% 5% 0 0;
+	}
+	h1{
+		font-size: 3.8em;
+	}
+	.portada-fecha{
+		font-size: 1.8em !important;
+		margin: 14px 0px;
+	}
+	.portada-hora{
+		font-size: 1em !important;
+		margin: 10px 0 20px 0;
+	}
+	.agenda-white {
+		padding: 20px 0;
+		width: 90%;
+		margin: 0 5%;
+	}
+	.liston-agenda{
+		border-right: 2.5em solid #F5BA27;
+		width: 90%;
+	}
+	.liston-agenda h2 {
+		margin: 9px 8px 5px 20px;
+		border-right: 2px solid #F5BA27;
+		padding: 0 16px 0 0;
+		font-size: 1.4em;
+	}
+	.liston-agenda div{
+		margin: 16px 0 5px 10px;
+	}
+	.liston-agenda div h4{
+		font-size: 1.1em;
+		font-weight: bold;
+	}
+	.liston-agenda div h5{
+		font-size: .9em;
+		line-height: 1.4em;
+	}
+}
+@media screen and (max-width: 460px){
+	.texto-portada{
+		width: 90%;
+		margin: 3% 4% 0 0;
+	}
+	h1{
+		font-size: 3em;
+	}
+	.portada-fecha{
+		font-size: 1.2em !important;
+		margin: 14px 0px;
+	}
+	.portada-hora{
+		font-size: .9em !important;
+		margin: 10px 0 20px 0;
+	}
+	.form {
+		width: 92%;
+		margin: 0 0 0 2%;
+	}
+}
