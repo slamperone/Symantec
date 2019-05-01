@@ -74,16 +74,16 @@ class RegisterController extends Controller
     /**
      * user registration - show form
      */
-    public function showRegistrationForm()
+    /*public function showRegistrationForm()
     {
         abort(404);
-    }
+    }*/
     
     /**
      * @inherit
      */
-    public function register(Request $request)
+    /*public function register(Request $request)
     {
         abort(404);
-    }
+    }*/
 }
