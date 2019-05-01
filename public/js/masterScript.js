@@ -1,6 +1,7 @@
 var apellido = document.registroSymantec.apellidos;
 var nombre = document.registroSymantec.nombre;
 var compania = document.registroSymantec.compania;
+var cargo = document.registroSymantec.cargo;
 var direccion = document.registroSymantec.dir;
 var colonia = document.registroSymantec.colonia;
 var cp = document.registroSymantec.cp;
@@ -47,6 +48,17 @@ function validarCompania() {
     return false;
   } else {
 	  compania.classList.remove("error");
+  }
+}
+cargo.onblur = function(){
+	validarCargo();
+}
+function validarCargo() {
+  if (cargo.value == null || cargo.value.length == 0 || /^\s+$/.test(cargo.value)) {
+	  cargo.classList.add("error");
+    return false;
+  } else {
+	  cargo.classList.remove("error");
   }
 }
 direccion.onblur = function(){
@@ -108,20 +120,24 @@ function validarTelefono() {
 correo.onblur = function(){
 	validarCorreo();
 }
-
 function validarCorreo() {
     var currentmail = correo.value;
+	var gmail = /@gmail.com\s*$/;
+	var yahoomail = /@yahoo.com\s*$/;
+	var outlook = /@outlook.com\s*$/;
+	var hotmail = /@hotmail.com\s*$/;
+	
   if (currentmail == null || currentmail.length == 0 || /^\s+$/.test(currentmail)) {
     correo.classList.add("error");
     return false;
   } else if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(currentmail))){
     correo.classList.add("error");
     return false;
-  } /*else if(/@gmail.com\s*$/.test(currentmail)){
+  } else if(gmail.test(currentmail)|| yahoomail.test(currentmail)|| outlook.test(currentmail)|| hotmail.test(currentmail)){
     correo.classList.add("error");
     window.alert("Debes ingresar un correo corporativo");
     return false;
-  }*/ else {
+  } else {
     correo.classList.remove("error");
   }
 }
@@ -130,12 +146,12 @@ function validarCorreo() {
 function permite(elEvento, permitidos) {
   // Variables que definen los caracteres permitidos
   var numeros = "0123456789";
-  var caracteres = " abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+  var caracteres = " abcdefghijklmnÃ±opqrstuvwxyzABCDEFGHIJKLMNÃ‘OPQRSTUVWXYZ";
   var numeros_caracteres = numeros + caracteres;
   var teclas_especiales = [8, 37, 39, 46];
   // 8 = BackSpace, 46 = Supr, 37 = flecha izquierda, 39 = flecha derecha
 
-  // Seleccionar los caracteres a partir del parámetro de la función
+  // Seleccionar los caracteres a partir del parÃ¡metro de la funciÃ³n
   switch(permitidos) {
     case 'num':
       permitidos = numeros;
@@ -226,6 +242,7 @@ function validarForma() {
 	var ape = validarApellido();
 	var nom = validarNombre();
 	var com = validarCompania();
+	var car = validarCargo();
 	var dir = validarDireccion();
 	var col = validarColonia();
 	var cp = validarCP();

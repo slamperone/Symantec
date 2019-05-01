@@ -18,6 +18,10 @@
                     <input type="text" required name="compania" maxlength="30" />
                     <div class="label-text">Compañía</div>
                 </label>
+				<label>
+                    <input type="text" required name="cargo" maxlength="60" />
+                    <div class="label-text">Cargo</div>
+                </label>
                 <label>
                     <input type="text" required name="dir" maxlength="50" />
                     <div class="label-text">Dirección</div>

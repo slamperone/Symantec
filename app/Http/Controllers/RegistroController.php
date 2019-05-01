@@ -82,7 +82,7 @@ class RegistroController extends Controller
           ->size(500)
           ->errorCorrection('H')
           ->color(33,60,96)
-          ->generate('http://symantec-cyberdefense-cloud-forum.com/checkin/'.$user, public_path('img/qr/'.$user.'.png'));
+          ->generate('http://symantec-cyberdefense-cloud-forum.com/checkin/'.$user, public_path().'/../public_html/img/qr/'.$user.'.png');
 
         //return $salida;
 
