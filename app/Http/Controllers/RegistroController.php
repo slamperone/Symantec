@@ -43,7 +43,7 @@ class RegistroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //        
             $request->validate([
 
             'nombre','apellidos','compania','dir','colonia','cp','telefono','correo','tamanio','encuesta','asesor','cargo'

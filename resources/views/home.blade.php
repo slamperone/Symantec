@@ -82,7 +82,7 @@
 
                      <label>
                         <select id="select-asesor" name="asesor">
-                            <option value="default" selected>Elige un asesor</option>
+                            <option value="X" selected>Elige un asesor</option>
                             
                             @foreach($asesores as $as)
                                     <option value="{{$as->valor}}">{{$as->nombre}}</option>                                
