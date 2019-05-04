@@ -21,13 +21,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-100869975-3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'UA-100869975-3');
-    </script>
+
 </head>
 <body>
     <div id="app">

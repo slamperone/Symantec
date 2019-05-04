@@ -20,3 +20,5 @@ Auth::routes();
 Route::post('/registroNuevo', 'RegistroController@store');
 
 
+Route::get('/administrador', 'BackAdminController@index');
+

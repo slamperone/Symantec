@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Admin;
+
+use App\Asesores;
+use App\Checkin;
+use App\Registros;
+
+
 use Illuminate\Http\Request;
 
 class BackAdminController extends Controller
@@ -27,7 +32,12 @@ class BackAdminController extends Controller
      */
     public function index()
     {
-        //
+        //Dash board  data
+
+        $registrados = Registros::all();
+
+     return view('admin.home', compact('registrados'));
+        
     }
 
     /**
