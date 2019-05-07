@@ -35,7 +35,17 @@ class BackAdminController extends Controller
         //Dash board  data
 
         #$registrados = Registros::all();
-        $registrados = Registros::paginate(15);
+
+        $registrados = Registros::join('Asesores', 'Registros.asesor', '=', 'Asesores.valorAsesor')
+                        ->join('Encuesta', 'Registros.encuesta', '=', 'Encuesta.valorEncuesta')
+                        ->join('Tamanio', 'Registros.tamanio', '=', 'Tamanio.valorTamanio')
+                        #->join('Asesores', 'Registros.asesor', '=', 'Asesores.valor');
+                        
+                        #->select('Asesores.nombre AS nombreAsesor')
+                        #->select('Registros.nombre')
+                        ->paginate(15);
+                        
+                        
 
      return view('admin.home', compact('registrados'));
         

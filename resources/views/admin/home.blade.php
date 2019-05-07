@@ -10,9 +10,6 @@
                 <div class="card-header"> Estos son los usuarios registrados para el Cloud Forum </div>
 
                 <div class="card-body">
-                    	
-
-
    <table class="table table-striped">
     <thead>
         <tr>
@@ -32,7 +29,8 @@
         </tr>
     </thead>
     <tbody class="table-hover">
-        @foreach($registrados as $ase)
+
+    		        @foreach($registrados as $ase)
         <tr>
             <td><small>{{$ase->nombre}}</small></td>
             <td><small>{{$ase->apellidos}}</small></td>
@@ -43,12 +41,13 @@
             <td><small>{{$ase->cp}}</small></td>
             <td><small>{{$ase->telefono}}</small></td>
             <td><small>{{$ase->correo}}</small></td>
-            <td><small>{{$ase->tamanio}}</small></td>
-            <td><small>{{$ase->encuesta}}</small></td>
-            <td><small>{{$ase->asesor}}</small></td>
+            <td><small>{{$ase->nombreTamanio}}</small></td>
+            <td><small>{{$ase->nombreEncuesta}}</small></td>
+            <td><small>{{$ase->nombreAsesor}}</small></td>
             <td><small>{{$ase->created_at}}</small></td>
         </tr>
         @endforeach
+
     </tbody>
   </table>
 
