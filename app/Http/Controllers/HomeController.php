@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $asesores = Asesores::orderBy('valor','asc')
+        $asesores = Asesores::orderBy('valorAsesor','asc')
             ->get();
 
 

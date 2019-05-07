@@ -6,7 +6,13 @@
     <div class="row justify-content-center">
         <div class="col-12">
             <div class="card">
-                <div class="card-header"> <h4>¡Hola {{ auth()->user()->name }}!</h4> </div>
+                <div class="card-header"> <h4>¡Hola {{ auth()->user()->name }}!</h4> 
+                	<a href="{{ route('reporte') }}">
+                	<div class="float-right"><img src="{{ asset('img/excel.png') }}" width="32">
+                	</a>
+                </div>
+            </div>
+
                 <div class="card-header"> Estos son los usuarios registrados para el Cloud Forum </div>
 
                 <div class="card-body">

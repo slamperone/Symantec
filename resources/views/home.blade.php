@@ -85,7 +85,7 @@
                             <option value="X" selected>Elige un asesor</option>
                             
                             @foreach($asesores as $as)
-                                    <option value="{{$as->valor}}">{{$as->nombre}}</option>                                
+                                    <option value="{{$as->valorAsesor}}">{{$as->nombreAsesor}}</option>                                
                             @endforeach
                         </select> 
                     </label>

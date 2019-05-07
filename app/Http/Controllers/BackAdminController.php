@@ -78,9 +78,24 @@ class BackAdminController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $admin)
+    public function show()
     {
         //
+
+        $todos = Registros::join('Asesores', 'Registros.asesor', '=', 'Asesores.valorAsesor')
+                        ->join('Encuesta', 'Registros.encuesta', '=', 'Encuesta.valorEncuesta')
+                        ->join('Tamanio', 'Registros.tamanio', '=', 'Tamanio.valorTamanio')
+                        #->join('Asesores', 'Registros.asesor', '=', 'Asesores.valor');
+                        
+                        #->select('Asesores.nombre AS nombreAsesor')
+                        #->select('Registros.nombre')
+                        ->get();
+                        
+                        
+
+     return view('admin.excel', compact('todos'));
+
+
     }
 
     /**

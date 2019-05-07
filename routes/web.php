@@ -22,3 +22,7 @@ Route::post('/registroNuevo', 'RegistroController@store');
 
 Route::get('/administrador', 'BackAdminController@index');
 
+Route::get('/descargaReporte', 'BackAdminController@show')->name('reporte');
+
+Route::get('/check', 'BackAdminController@store');
+
