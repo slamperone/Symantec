@@ -34,7 +34,8 @@ class BackAdminController extends Controller
     {
         //Dash board  data
 
-        $registrados = Registros::all();
+        #$registrados = Registros::all();
+        $registrados = Registros::paginate(15);
 
      return view('admin.home', compact('registrados'));
         
