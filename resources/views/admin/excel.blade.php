@@ -37,7 +37,7 @@ header("Content-Disposition: attachment; filename=reporte_".date('d/m/Y-H:i').".
             <td><small>{{$uno->nombre}}</small></td>
             <td><small>{{$uno->apellidos}}</small></td>
             <td><small>{{$uno->cargo}}</small></td>
-            <td><small>{{$uno->comania}}</small></td>
+            <td><small>{{$uno->compania}}</small></td>
             <td><small>{{$uno->dir}}</small></td>
             <td><small>{{$uno->colonia}}</small></td>
             <td><small>{{$uno->cp}}</small></td>

@@ -41,7 +41,7 @@
             <td><small>{{$ase->nombre}}</small></td>
             <td><small>{{$ase->apellidos}}</small></td>
             <td><small>{{$ase->cargo}}</small></td>
-            <td><small>{{$ase->comania}}</small></td>
+            <td><small>{{$ase->compania}}</small></td>
             <td><small>{{$ase->dir}}</small></td>
             <td><small>{{$ase->colonia}}</small></td>
             <td><small>{{$ase->cp}}</small></td>

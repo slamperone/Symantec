@@ -36,9 +36,9 @@ class BackAdminController extends Controller
 
         #$registrados = Registros::all();
 
-        $registrados = Registros::join('Asesores', 'Registros.asesor', '=', 'Asesores.valorAsesor')
-                        ->join('Encuesta', 'Registros.encuesta', '=', 'Encuesta.valorEncuesta')
-                        ->join('Tamanio', 'Registros.tamanio', '=', 'Tamanio.valorTamanio')
+        $registrados = Registros::join('asesores', 'registros.asesor', '=', 'asesores.valorAsesor')
+                        ->join('encuesta', 'registros.encuesta', '=', 'encuesta.valorEncuesta')
+                        ->join('tamanio', 'registros.tamanio', '=', 'tamanio.valorTamanio')
                         #->join('Asesores', 'Registros.asesor', '=', 'Asesores.valor');
                         
                         #->select('Asesores.nombre AS nombreAsesor')
@@ -82,9 +82,9 @@ class BackAdminController extends Controller
     {
         //
 
-        $todos = Registros::join('Asesores', 'Registros.asesor', '=', 'Asesores.valorAsesor')
-                        ->join('Encuesta', 'Registros.encuesta', '=', 'Encuesta.valorEncuesta')
-                        ->join('Tamanio', 'Registros.tamanio', '=', 'Tamanio.valorTamanio')
+        $todos = Registros::join('asesores', 'registros.asesor', '=', 'asesores.valorAsesor')
+                        ->join('encuesta', 'registros.encuesta', '=', 'encuesta.valorEncuesta')
+                        ->join('tamanio', 'registros.tamanio', '=', 'tamanio.valorTamanio')
                         #->join('Asesores', 'Registros.asesor', '=', 'Asesores.valor');
                         
                         #->select('Asesores.nombre AS nombreAsesor')
