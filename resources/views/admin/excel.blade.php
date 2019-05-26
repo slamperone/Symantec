@@ -4,10 +4,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
 
 <head>
 
-<?php 
-header("Content-type: application/vnd.ms-excel" ) ; 
-header("Content-Disposition: attachment; filename=reporte_".date('d/m/Y-H:i').".xls");
-?>
+
 <title></title>
 </head>
 <body>
@@ -28,6 +25,9 @@ header("Content-Disposition: attachment; filename=reporte_".date('d/m/Y-H:i').".
           <td>Encuesta</td>
           <td>Asesor</td>
           <td>Registro</td>
+          <td>¿Asistió?</td>
+          <td>&nbsp;</td>
+
         </tr>
     </thead>
     <tbody>
@@ -47,6 +47,12 @@ header("Content-Disposition: attachment; filename=reporte_".date('d/m/Y-H:i').".
             <td><small>{{$uno->nombreEncuesta}}</small></td>
             <td><small>{{$uno->nombreAsesor}}</small></td>
             <td><small>{{$uno->created_at}}</small></td>
+            <td><small>{{$uno->asistencia}}</small></td>
+
+            @if($uno->asistencia == 'yes')
+
+                  <td><small>{{$uno->updated_at}}</small></td>
+            @endif
         </tr>
         @endforeach
 

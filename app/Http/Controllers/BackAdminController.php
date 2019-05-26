@@ -85,6 +85,7 @@ class BackAdminController extends Controller
         $todos = Registros::join('asesores', 'registros.asesor', '=', 'asesores.valorAsesor')
                         ->join('encuesta', 'registros.encuesta', '=', 'encuesta.valorEncuesta')
                         ->join('tamanio', 'registros.tamanio', '=', 'tamanio.valorTamanio')
+                        ->join('checkins', 'registros.id', '=', 'checkins.idRegistrado')
                         #->join('Asesores', 'Registros.asesor', '=', 'Asesores.valor');
                         
                         #->select('Asesores.nombre AS nombreAsesor')
