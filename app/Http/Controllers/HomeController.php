@@ -38,7 +38,16 @@ class HomeController extends Controller
     {
 
 
+        $hoy = strtotime(date("d-m-Y H:i:00",time()));
+        $evento = strtotime("29-05-2019 08:00:00");
 
+
+if ($hoy <= $evento) {
+    $datos = array(
+                        'resp' => "No puedes antes de la fecha del evento",
+                        'icon' => "no",
+                    );
+}else{
 
         $user = Checkin::where(array('hash' => $id))
             ->get();
@@ -91,7 +100,7 @@ class HomeController extends Controller
                     );
         }
 
-
+}
                 return view('checkin',compact('datos'));
 
 

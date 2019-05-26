@@ -3,7 +3,10 @@ xmlns:x="urn:schemas-microsoft-com:office:excel"
 xmlns="http://www.w3.org/TR/REC-html40">
 
 <head>
-
+<?php 
+header("Content-type: application/vnd.ms-excel" ) ; 
+header("Content-Disposition: attachment; filename=reporte_".date('d/m/Y-H:i').".xls");
+?>
 
 <title></title>
 </head>
